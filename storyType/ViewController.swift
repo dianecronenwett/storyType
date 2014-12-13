@@ -15,6 +15,9 @@ class ViewController: UIViewController {
         UIImage(named: "image_3"),
     ]
    
+    var storyWords: [String] = [
+        "Portland is fabulous this time of year","San Francisco is cold this time of year","Cupertino is meh this time of year"
+    ]
 
 
     @IBOutlet weak var backgroundImages: UIImageView!
