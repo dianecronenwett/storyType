@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextViewDelegate {
     var backgroundCount = [
         UIImage(named: "hook_320"),
         UIImage(named: "pan_320"),
@@ -25,10 +25,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonHide: UIButton!
     
     var counter = 0;
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       // storyText.text = storyWords[0]
+        storyUpdate()
         imageUpdate()
         Hide()
     }
@@ -41,6 +43,7 @@ class ViewController: UIViewController {
             counter = 0
 
         }
+        storyUpdate()
         imageUpdate()
         Hide()
     }
@@ -65,7 +68,11 @@ class ViewController: UIViewController {
     }
         
     }
-    
+   //helper function for updating text
+    func storyUpdate() {
+        storyText.text = storyWords[counter]
+        println(counter)
+    }
     
     //helper function for updating images
     func imageUpdate() {
