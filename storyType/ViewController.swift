@@ -25,16 +25,19 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var buttonHide: UIButton!
     
     var counter = 0;
-   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // storyText.text = storyWords[0]
-        storyUpdate()
+        storyText.alpha = 0.3
+           UIView.animateWithDuration(1, animations: { () -> Void in
+            self.storyText.alpha = 1
+           })
+           storyUpdate()
         imageUpdate()
         Hide()
     }
-
+    
     @IBAction func nextButton(sender: AnyObject) {
      
        //whichever image it is on, go to the next one in the array
@@ -55,6 +58,7 @@ class ViewController: UIViewController, UITextViewDelegate {
             counter = backgroundCount.count - 1
            
         }
+       storyUpdate()
        imageUpdate()
         Hide()
     }
@@ -71,12 +75,13 @@ class ViewController: UIViewController, UITextViewDelegate {
    //helper function for updating text
     func storyUpdate() {
         storyText.text = storyWords[counter]
-        println(counter)
+    
     }
     
     //helper function for updating images
     func imageUpdate() {
         backgroundImages.image = backgroundCount[counter]
+        
         //println(counter)
         
    
