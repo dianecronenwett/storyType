@@ -25,17 +25,16 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var buttonHide: UIButton!
     
     var counter = 0;
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        storyText.alpha = 0.3
-           UIView.animateWithDuration(1, animations: { () -> Void in
-            self.storyText.alpha = 1
-           })
-           storyUpdate()
+        storyText.alpha = 0.1
+        storyUpdate()
         imageUpdate()
+        textAnimate()
         Hide()
+        
     }
     
     @IBAction func nextButton(sender: AnyObject) {
@@ -44,11 +43,14 @@ class ViewController: UIViewController, UITextViewDelegate {
        counter++
         if (counter >= backgroundCount.count) {
             counter = 0
-
+           
         }
+        storyText.alpha = 0.1
         storyUpdate()
         imageUpdate()
+        textAnimate()
         Hide()
+        
     }
 
     
@@ -56,11 +58,13 @@ class ViewController: UIViewController, UITextViewDelegate {
         counter--
         if (counter < 0) {
             counter = backgroundCount.count - 1
-           
+            storyText.alpha = 0.1
         }
+       storyText.alpha = 0.1
        storyUpdate()
+       textAnimate()
        imageUpdate()
-        Hide()
+       Hide()
     }
     
     func Hide() {
@@ -75,17 +79,20 @@ class ViewController: UIViewController, UITextViewDelegate {
    //helper function for updating text
     func storyUpdate() {
         storyText.text = storyWords[counter]
-    
     }
     
     //helper function for updating images
     func imageUpdate() {
         backgroundImages.image = backgroundCount[counter]
-        
-        //println(counter)
-        
-   
     }
+    //helper function for animating story text in on update
+     func textAnimate(){
+            UIView.animateWithDuration(1, animations: { () -> Void in
+                self.storyText.alpha = 1
+            })
+
+        }
+  // }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
