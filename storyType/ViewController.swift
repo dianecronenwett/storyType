@@ -23,17 +23,26 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var backgroundImages: UIImageView!
     @IBOutlet weak var storyText: UITextView!
     @IBOutlet weak var buttonHide: UIButton!
-    
+    @IBOutlet weak var sparkleStars1: UIImageView!
+    @IBOutlet weak var sparkleStars2: UIImageView!
+
+  
     var counter = 0;
+
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         storyText.alpha = 0.1
+        sparkleStars1.alpha = 0.4
+        sparkleStars2.alpha = 0.5
         storyUpdate()
         imageUpdate()
         textAnimate()
+        imageAnimateIn()
+       // imageAnimateOut()
         Hide()
+        
         
     }
     
@@ -49,6 +58,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         storyUpdate()
         imageUpdate()
         textAnimate()
+        
         Hide()
         
     }
@@ -90,10 +100,20 @@ class ViewController: UIViewController, UITextViewDelegate {
             UIView.animateWithDuration(1, animations: { () -> Void in
                 self.storyText.alpha = 1
             })
-
         }
-  // }
     
+  //function for adding an animation block to supplementary images
+    func imageAnimateIn(){
+        UIView.animateWithDuration(1, delay: 1,
+            options: UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: {
+                self.sparkleStars1.alpha = 1
+                self.sparkleStars2.alpha = 0.8
+            }, completion: nil)
+    }
+    
+
+  
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
        
