@@ -61,8 +61,8 @@
                     <connections>
                         <outlet property="backgroundImages" destination="HiP-Fr-JKC" id="fOq-Mn-adJ"/>
                         <outlet property="buttonHide" destination="tqP-oL-xHh" id="LE9-qF-abZ"/>
-                        <outlet property="sparkleStars1" destination="0mT-CI-7fw" id="rnr-LI-hpd"/>
-                        <outlet property="sparkleStars2" destination="YEC-V3-QNb" id="kWr-vq-fMa"/>
+                        <outlet property="sparkleStars1" destination="0mT-CI-7fw" id="P2L-CF-gzI"/>
+                        <outlet property="sparkleStars2" destination="YEC-V3-QNb" id="QF4-J4-V9F"/>
                         <outlet property="storyText" destination="LnP-aW-Pfb" id="b1Z-bs-cXZ"/>
                     </connections>
                 </viewController>

@@ -14,7 +14,20 @@ class ViewController: UIViewController, UITextViewDelegate {
         UIImage(named: "pan_320"),
         UIImage(named: "image_3"),
     ]
-   
+  
+    var animatedImages = [
+        UIImage(named: "hook_light_1"),
+        UIImage(named: "pan_320_twinkling_stars_1"),
+        UIImage(named: "jungle_1"),
+    ]
+    
+    var animatedImages2 = [
+        UIImage(named: "hook_light_2"),
+        UIImage(named: "pan_320_twinkling_stars_2"),
+        UIImage(named: "jungle_2"),
+    
+    ]
+    
     var storyWords: [String] = [
         "Portland is fabulous this time of year","San Francisco is cold this time of year","Cupertino is meh this time of year"
     ]
@@ -28,7 +41,8 @@ class ViewController: UIViewController, UITextViewDelegate {
 
   
     var counter = 0;
-
+    var animatedImagesStart = 0;
+    var animatedImagesStart2 = 0;
    
     
     override func viewDidLoad() {
@@ -39,8 +53,9 @@ class ViewController: UIViewController, UITextViewDelegate {
         storyUpdate()
         imageUpdate()
         textAnimate()
+        imageAnimate()
+        imageAnimate2()
         imageAnimateIn()
-       // imageAnimateOut()
         Hide()
         
         
@@ -49,16 +64,24 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBAction func nextButton(sender: AnyObject) {
      
        //whichever image it is on, go to the next one in the array
+      
        counter++
+       animatedImagesStart++
+       animatedImagesStart2++
         if (counter >= backgroundCount.count) {
             counter = 0
+            animatedImagesStart = 0
+            animatedImagesStart2 = 0
            
-        }
+       }
+        
         storyText.alpha = 0.1
         storyUpdate()
         imageUpdate()
         textAnimate()
-        
+        imageAnimate()
+        imageAnimate2()
+        imageAnimateIn()
         Hide()
         
     }
@@ -66,6 +89,8 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func previousButton(sender: UIButton) {
         counter--
+        animatedImagesStart--
+        animatedImagesStart2--
         if (counter < 0) {
             counter = backgroundCount.count - 1
             storyText.alpha = 0.1
@@ -74,6 +99,8 @@ class ViewController: UIViewController, UITextViewDelegate {
        storyUpdate()
        textAnimate()
        imageUpdate()
+       imageAnimate()
+        imageAnimate2()
        Hide()
     }
     
@@ -94,6 +121,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     //helper function for updating images
     func imageUpdate() {
         backgroundImages.image = backgroundCount[counter]
+       
     }
     //helper function for animating story text in on update
      func textAnimate(){
@@ -102,7 +130,17 @@ class ViewController: UIViewController, UITextViewDelegate {
             })
         }
     
-  //function for adding an animation block to supplementary images
+    //helper function for accessing animation images
+    func imageAnimate(){
+        sparkleStars1.image = animatedImages[animatedImagesStart]
+       
+}
+    
+    func imageAnimate2(){
+        sparkleStars2.image = animatedImages2[animatedImagesStart2]
+    }
+
+  //function for adding an animation block for twinkling stars
     func imageAnimateIn(){
         UIView.animateWithDuration(1, delay: 1,
             options: UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: {
