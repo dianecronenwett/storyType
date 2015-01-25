@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         storyText.alpha = 0.1
-        sparkleStars1.alpha = 0.4
+        sparkleStars1.alpha = 0.2
         sparkleStars2.alpha = 0.5
         storyUpdate()
         imageUpdate()
@@ -145,7 +145,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         UIView.animateWithDuration(1, delay: 1,
             options: UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: {
                 self.sparkleStars1.alpha = 1
-                self.sparkleStars2.alpha = 0.8
+                self.sparkleStars2.alpha = 0.2
             }, completion: nil)
     }
     
